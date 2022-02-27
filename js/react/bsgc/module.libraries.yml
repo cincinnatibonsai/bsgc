@@ -1,0 +1,5 @@
+my-app:
+ version: 1.x
+ js:
+   js/react/my-app/dist/app.bundle.js: { minified: true }
+   

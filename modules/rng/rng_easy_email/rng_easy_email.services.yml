@@ -1,0 +1,12 @@
+services:
+  rng_easy_email.sender:
+    class: Drupal\rng_easy_email\EventSubscriber\RegistrationSubscriber
+    arguments: ['@rng.event_manager', '@entity_type.manager', '@rng_easy_email.dispatch']
+    tags:
+      - { name: event_subscriber }
+  logger.channel.rng_easy_email:
+    parent: logger.channel_base
+    arguments: ['rng_easy_email']
+  rng_easy_email.dispatch:
+    class: Drupal\rng_easy_email\DispatchService
+    arguments: ['@easy_email.handler', '@entity_type.manager']

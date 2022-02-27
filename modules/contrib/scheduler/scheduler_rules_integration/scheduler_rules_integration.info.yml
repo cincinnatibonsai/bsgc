@@ -1,0 +1,13 @@
+name: Scheduler Rules Integration
+type: module
+description: 'Scheduler sub-module providing conditions, actions and events for use with the Rules module.'
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - rules:rules
+  - scheduler:scheduler
+
+# Information added by Drupal.org packaging script on 2022-02-24
+version: '2.0.0-rc2'
+project: 'scheduler'
+datestamp: 1645716842

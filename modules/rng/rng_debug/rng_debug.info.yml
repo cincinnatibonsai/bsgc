@@ -1,0 +1,12 @@
+name: RNG Debug
+type: module
+description: 'Debug event settings.'
+package: RNG
+core_version_requirement: ^8.8.4 || ^9.0
+dependencies:
+  - rng:rng
+
+# Information added by Drupal.org packaging script on 2022-02-22
+version: '3.x-dev'
+project: 'rng'
+datestamp: 1645538223

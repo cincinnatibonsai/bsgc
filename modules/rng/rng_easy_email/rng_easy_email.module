@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Contains rng_easy_email.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\rng\Entity\RegistrationInterface;
+
+/**
+ * Implements hook_help().
+ */
+function rng_easy_email_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the rng_easy_email module.
+    case 'help.page.rng_easy_email':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('RNG integration with Easy Email') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function rng_easy_email_registration_update(RegistrationInterface $registration) {
+  \Drupal::service('rng_easy_email.dispatch')->sendRegistration('attendee_registered', $registration);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function rng_easy_email_registration_insert(RegistrationInterface $registration) {
+  \Drupal::service('rng_easy_email.dispatch')->sendRegistration('attendee_registered', $registration);
+}

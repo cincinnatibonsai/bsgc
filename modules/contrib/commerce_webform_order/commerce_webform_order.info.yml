@@ -1,0 +1,21 @@
+name: Commerce Webform Order
+description: This module integrates webform with commerce modules.
+package: Commerce (contrib)
+
+core_version_requirement: ^8.8 || ^9
+type: module
+
+dependencies:
+  - commerce:commerce (>= 2.19)
+  - commerce:commerce_cart
+  - commerce:commerce_checkout
+  - commerce:commerce_order
+  - commerce:commerce_price
+  - commerce:commerce_product
+  - commerce:commerce_store
+  - webform:webform (>= 6)
+
+# Information added by Drupal.org packaging script on 2021-10-09
+version: '2.0.0-beta2'
+project: 'commerce_webform_order'
+datestamp: 1633800738

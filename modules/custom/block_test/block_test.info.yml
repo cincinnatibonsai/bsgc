@@ -1,0 +1,8 @@
+name: Block Test
+type: module
+description: This is a custom module test.
+core_version_requirement: ^8 || ^9
+package: custom
+dependencies:
+    - drupal:block
+    

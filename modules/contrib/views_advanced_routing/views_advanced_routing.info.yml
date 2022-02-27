@@ -1,0 +1,13 @@
+name: Views Advanced Routing
+type: module
+description: 'Provides advanced route customisation for Views.'
+package: Views
+core_version_requirement: ^8.7.7 || ^9.0
+configure: views_ui.settings_advanced
+dependencies:
+  - drupal:views
+
+# Information added by Drupal.org packaging script on 2020-08-13
+version: '2.0.0-rc1'
+project: 'views_advanced_routing'
+datestamp: 1597315691

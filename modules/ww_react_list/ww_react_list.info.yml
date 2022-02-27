@@ -1,0 +1,8 @@
+name: 'React App List'
+type: module
+description: 'Basic set up of a react app.'
+core_version_requirement: ^8.7.7 || ^9
+package: custom
+dependencies:
+  - drupal:jsonapi
+  - drupal:block

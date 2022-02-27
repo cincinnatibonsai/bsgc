@@ -1,0 +1,12 @@
+name: 'RNG test views'
+type: module
+description: 'Provides views for RNG Views tests.'
+dependencies:
+  - rng
+  - views
+core: '8.x'
+
+# Information added by Drupal.org packaging script on 2022-02-22
+version: '3.x-dev'
+project: 'rng'
+datestamp: 1645538223

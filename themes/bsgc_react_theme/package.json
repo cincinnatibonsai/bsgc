@@ -1,0 +1,31 @@
+{
+  "name": "bsgc_react_theme",
+  "version": "1.0.0",
+  "main": "js/src/index.jsx",
+  "scripts": {
+    "build": "NODE_ENV=production webpack --mode=production",
+    "build:dev": "webpack",
+    "start": "webpack --watch",
+    "start:hmr": "webpack-dev-server --hot --progress --color"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.3.1"
+  },
+  "dependencies": {
+    "@hot-loader/react-dom": "^16.13.0",
+    "prop-types": "^15.8.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-hot-loader": "^4.13.0"
+  },
+  "description": ""
+}

@@ -1,0 +1,34 @@
+{
+  "scripts": {
+   "build": "NODE_ENV=production webpack",
+   "watch": "webpack --watch --progress"
+  },
+  "name": "bsgc",
+  "version": "1.0.0",
+  "description": "BSGC React Module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Phil Horney",
+  "license": "ISC",
+  "dependencies": {
+    "react-dom": "^17.0.2"
+  },
+  "babel": {
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "IE >= 11",
+            "last 3 versions"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ]
+  }
+}

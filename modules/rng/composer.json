@@ -1,0 +1,38 @@
+{
+  "name": "drupal/rng",
+  "description": "Provides ability to create and manage events and registrations.",
+  "type": "drupal-module",
+  "homepage": "http://drupal.org/project/rng",
+  "support": {
+    "issues": "https://github.com/dpi/rng/issues",
+    "source": "https://github.com/dpi/rng"
+  },
+  "authors": [
+    {
+      "name": "John Locke",
+      "email": "john@freelock.com",
+      "homepage": "https://www.freelock.com",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Daniel Phin",
+      "email": "pro@danielph.in",
+      "homepage": "http://danielph.in",
+      "role": "Former Maintainer"
+    }
+  ],
+  "license": "GPL-2.0+",
+  "require": {
+    "drupal/courier": "^2.0@alpha",
+    "drupal/dynamic_entity_reference": "^1.0",
+    "drupal/unlimited_number": "^2.0"
+  },
+  "suggest": {
+    "drupal/token": " Improves token UI on message template forms.",
+    "drupal/courier": "Message subscription framework",
+    "drupal/rng_quick": "Provides blocks for event registration.",
+    "drupal/rng_conflict": "Prevent registrations when a registrant is registered for a similar event.",
+    "drupal/rng_contact": "Provides a simple contact entity type.",
+    "drupal/rng_date_scheduler": "Control whether a user can register based on current time in relation to date fields attached to an event entity."
+  }
+}

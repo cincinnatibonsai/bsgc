@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Module implementation file.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function netlify_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.netlify':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The Netlify module lets you trigger build hooks for selected content types every time you save a node.') . '</p>';
+
+      return $output;
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function netlify_entity_presave(EntityInterface $entity) {
+  $config = \Drupal::config('netlify.settings');
+  $netlify_build_hook_url = $config->get('netlify_build_hook_url');
+
+  if (
+    // The build hook is setup.
+    $netlify_build_hook_url &&
+    // Content type is configured to trigger builds.
+    $entity->getEntityTypeId() === 'node' &&
+    $config->get('netlify_node_type_' . $entity->bundle()) &&
+    // Node will be published OR node was published, but will be unpublished.
+    (
+      $entity->get('status')->value ||
+      !empty($entity->original->get('status')->value)
+    )
+  ) {
+    try {
+      \Drupal::httpClient()->post($netlify_build_hook_url);
+      \Drupal::logger('netlify')->info(t('Successfully triggered Netlify build hook.'));
+    }
+    catch (\Throwable $exception) {
+      \Drupal::logger('netlify')->error(t('Failed to trigger Netlify build hook due to error "%error"', ['%error' => $exception->getMessage()]));
+      return FALSE;
+    }
+  }
+
+  return TRUE;
+}

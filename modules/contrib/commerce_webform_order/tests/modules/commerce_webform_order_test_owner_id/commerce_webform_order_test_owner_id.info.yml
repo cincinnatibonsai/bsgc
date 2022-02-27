@@ -1,0 +1,14 @@
+name: Commerce Webform Order module test owner ID
+description: Support module for Commerce Webform Order module testing.
+package: Testing
+
+core_version_requirement: ^8.8 || ^9
+type: module
+
+dependencies:
+  - commerce_webform_order:commerce_webform_order
+
+# Information added by Drupal.org packaging script on 2021-10-09
+version: '2.0.0-beta2'
+project: 'commerce_webform_order'
+datestamp: 1633800738

@@ -1,0 +1,12 @@
+name: Courier Message Composer
+type: module
+description: 'Allows you to send single one-off messages.'
+core_version_requirement: ^8.9 || ^9
+php: 7.1
+dependencies:
+  - courier
+
+# Information added by Drupal.org packaging script on 2022-02-05
+version: '2.0.0'
+project: 'courier'
+datestamp: 1644069084

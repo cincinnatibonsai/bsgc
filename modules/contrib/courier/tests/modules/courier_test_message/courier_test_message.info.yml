@@ -1,0 +1,12 @@
+name: Test message
+type: module
+description: 'Provides message type for testing.'
+core_version_requirement: ^8.9 || ^9
+php: 7.1
+dependencies:
+  - user
+
+# Information added by Drupal.org packaging script on 2022-02-05
+version: '2.0.0'
+project: 'courier'
+datestamp: 1644069084

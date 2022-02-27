@@ -1,0 +1,8 @@
+name: BSGC React Theme
+type: theme
+description: 'The BSGC base React Theme.'
+core_version_requirement: ^8.7.7 || ^9
+base theme: tarapro
+
+libraries:
+  - bsgc_react_theme/react_app

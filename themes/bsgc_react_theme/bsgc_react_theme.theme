@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implements hook_page_attachments_alter().
+ *
+ */
+function bsgc_react_theme_page_attachments_alter(array &$attachments) {
+  // Use the dev library if we're developing locally.
+  if (in_array('bsgc_react_theme/react_app', $attachments['#attached']['library']) && file_exists(__DIR__ . '/js/dist_dev')) {
+    $index = array_search('bsgc_react_theme/react_app', $attachments['#attached']['library']);
+    $attachments['#attached']['library'][$index] = 'bsgc_react_theme/react_app_dev';
+  }
+}

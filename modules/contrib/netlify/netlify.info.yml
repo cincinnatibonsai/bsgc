@@ -1,0 +1,11 @@
+name: Netlify
+type: module
+description: 'Trigger Netlify build hook when a node is published.'
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: 'Custom'
+
+# Information added by Drupal.org packaging script on 2020-07-17
+version: '8.x-1.5'
+project: 'netlify'
+datestamp: 1594967653

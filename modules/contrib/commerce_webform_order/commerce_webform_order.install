@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the RMB Commerce module.
+ */
+
+use Drupal\Core\Utility\UpdateException;
+
+/**
+ * Implements hook_install().
+ */
+function commerce_webform_order_install() {
+  // Install module base fields to add relation between webform submissions and
+  // order items.
+  $definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+  $definition_update_manager->installFieldStorageDefinition('commerce_webform_order_submission', 'commerce_order_item', 'commerce_webform_order', commerce_webform_order_get_commerce_order_item_base_field());
+}
+
+/**
+ * Uninstall the commerce_webform_order_items field from the webform submission.
+ */
+function commerce_webform_order_update_8001() {
+  $definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+
+  // Uninstall old field.
+  $field_storage = $definition_update_manager->getFieldStorageDefinition('commerce_webform_order_items', 'webform_submission');
+  $definition_update_manager->uninstallFieldStorageDefinition($field_storage);
+}
+
+/**
+ * Rename the commerce_webform_order_submission field.
+ */
+function commerce_webform_order_update_8002() {
+  $definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+
+  // First create the new field.
+  $definition_update_manager->installFieldStorageDefinition('commerce_webform_order_submission', 'commerce_order_item', 'commerce_webform_order', commerce_webform_order_get_commerce_order_item_base_field());
+
+  // Then copy values from the old field.
+  $database = \Drupal::database();
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $order_item_storage = $entity_type_manager->getStorage('commerce_order_item');
+  $table_name = $order_item_storage->getBaseTable();
+
+  $query = $database->prepare($database->prefixTables("UPDATE {{$table_name}} SET commerce_webform_order_submission = commerce_webform_order_submissions"));
+  if ($query->execute() !== TRUE) {
+    throw new UpdateException('Unable to clone commerce_webform_order_submissions data.');
+  }
+
+  // And uninstall old field.
+  $field_storage = $definition_update_manager->getFieldStorageDefinition('commerce_webform_order_submissions', 'commerce_order_item');
+  $definition_update_manager->uninstallFieldStorageDefinition($field_storage);
+}

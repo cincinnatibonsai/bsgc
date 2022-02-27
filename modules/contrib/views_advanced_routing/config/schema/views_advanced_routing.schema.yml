@@ -1,0 +1,12 @@
+views.display_extender.views_advanced_routing_route:
+  type: mapping
+  mapping:
+    route:
+      type: mapping
+      mapping:
+        defaults:
+          type: ignore
+        requirements:
+          type: ignore
+        options:
+          type: ignore

@@ -1,0 +1,15 @@
+name: RNG Views
+type: module
+description: 'Improved Views integration for RNG.'
+package: RNG
+core_version_requirement: ^8.8.4 || ^9.0
+dependencies:
+  - rng:rng
+  - drupal:views
+  - veoa:veoa
+  - views_advanced_routing:views_advanced_routing
+
+# Information added by Drupal.org packaging script on 2022-02-22
+version: '3.x-dev'
+project: 'rng'
+datestamp: 1645538223
